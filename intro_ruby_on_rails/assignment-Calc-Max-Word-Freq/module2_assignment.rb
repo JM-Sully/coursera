@@ -28,8 +28,7 @@ class LineAnalyzer
     split_words = content.split(" ")
 
     split_words.each do |word|
-      word.downcase!
-      highest_wf_count[word] += 1
+      highest_wf_count[word.downcase] += 1
     end 
   end
 
