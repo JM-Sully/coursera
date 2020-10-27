@@ -30,14 +30,14 @@ class LineAnalyzer
   #  store that in the highest_wf_words attribute.
 
   def calculate_word_frequency
-    highest_wf_count = Hash.new(0)
-    split_words = content.split(" ")
+    @highest_wf_words = Hash.new(0)
+    split_words = @content.split(" ")
 
     split_words.each do |word|
-      highest_wf_count[word.downcase] += 1
+      @highest_wf_words[word.downcase] += 1
     end 
 
-    highest_wf_words = highest_wf_count.sort_by { |word, value| word }
+    @highest_wf_count = @highest_wf_words.map { |word, value| value }.max
 
   end
 
