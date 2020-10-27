@@ -23,6 +23,12 @@ class LineAnalyzer
     calculate_word_frequency
   end
 
+  #Implement the calculate_word_frequency() method to:
+  #* calculate the maximum number of times a single word appears within
+  #  provided content and store that in the highest_wf_count attribute.
+  #* identify the words that were used the maximum number of times and
+  #  store that in the highest_wf_words attribute.
+
   def calculate_word_frequency
     highest_wf_count = Hash.new(0)
     split_words = content.split(" ")
@@ -30,13 +36,11 @@ class LineAnalyzer
     split_words.each do |word|
       highest_wf_count[word.downcase] += 1
     end 
+
+    highest_wf_words = highest_wf_count.sort_by { |word, value| word }
+
   end
 
-  #Implement the calculate_word_frequency() method to:
-  #* calculate the maximum number of times a single word appears within
-  #  provided content and store that in the highest_wf_count attribute.
-  #* identify the words that were used the maximum number of times and
-  #  store that in the highest_wf_words attribute.
 end
 
 #  Implement a class called Solution. 
