@@ -66,12 +66,8 @@ class Solution
   #* Create an array of LineAnalyzers for each line in the file
   def analyze_file
     File.open("test.tx") do |test_file|
-      lines = test_file.readlines
+      @analyzers = test_file.readlines.map(&:chomp)
     end
-
-    lines.each do |line|
-      @analyzers[line] += 1
-    end 
   end
 
 
