@@ -52,7 +52,7 @@ class Solution
   #* highest_count_words_across_lines - a filtered array of LineAnalyzer objects with the highest_wf_words attribute 
   #  equal to the highest_count_across_lines determined previously.
   attr_reader :analyzers, :highest_count_across_lines, :highest_count_words_across_lines
-
+  @analyzers = []
   # Implement the following methods in the Solution class.
   #* analyze_file() - processes 'test.txt' intro an array of LineAnalyzers and stores them in analyzers.
   #* calculate_line_with_highest_frequency() - determines the highest_count_across_lines and 
@@ -70,8 +70,8 @@ class Solution
     end
 
     lines.each do |line|
-      line = @analyzers
-    end
+      @analyzers[line] += 1
+    end 
   end
 
 
