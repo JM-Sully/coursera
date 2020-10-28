@@ -66,12 +66,13 @@ class Solution
   #* Read the 'test.txt' file in lines 
   #* Create an array of LineAnalyzers for each line in the file
   def analyze_file
-    File.open("test.txt") do |test_file|
-      @lines = test_file.readlines
+    File.open("test.txt") do |file|
+      @lines = file.readlines
     end
 
     @lines.each do |line|
-      @analyzers << line
+      line_number += 1
+      @analyzers << LineAnalyzer.new(line, line_number)
     end 
   end
 
@@ -82,6 +83,7 @@ class Solution
   #* identifies the LineAnalyzer objects in the analyzers array that have highest_wf_count equal to highest_count_across_lines 
   #  attribute value determined previously and stores them in highest_count_words_across_lines.
   def calculate_line_with_highest_frequency
+    @highest_count_across_lines = @analyzers.LineAnalyzer.
   end
 
 
