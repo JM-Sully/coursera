@@ -32,15 +32,12 @@ class LineAnalyzer
   def calculate_word_frequency
     @highest_wf_words = Hash.new(0)
     split_words = @content.split(" ")
-
     split_words.each do |word|
       @highest_wf_words[word.downcase] += 1
     end 
 
     @highest_wf_count = @highest_wf_words.map { |word, value| value }.max
-
   end
-
 end
 
 #  Implement a class called Solution. 
@@ -52,7 +49,11 @@ class Solution
   #* highest_count_words_across_lines - a filtered array of LineAnalyzer objects with the highest_wf_words attribute 
   #  equal to the highest_count_across_lines determined previously.
   attr_reader :analyzers, :highest_count_across_lines, :highest_count_words_across_lines
-  @analyzers = []
+
+  def initialize
+    @analyzers = []
+  end
+
   # Implement the following methods in the Solution class.
   #* analyze_file() - processes 'test.txt' intro an array of LineAnalyzers and stores them in analyzers.
   #* calculate_line_with_highest_frequency() - determines the highest_count_across_lines and 
@@ -65,11 +66,11 @@ class Solution
   #* Read the 'test.txt' file in lines 
   #* Create an array of LineAnalyzers for each line in the file
   def analyze_file
-    File.open("test.tx") do |test_file|
-      lines = test_file.readlines
+    File.open("test.txt") do |test_file|
+      @lines = test_file.readlines
     end
 
-    lines.each do |line|
+    @lines.each do |line|
       @analyzers << line
     end 
   end
