@@ -84,19 +84,20 @@ class Solution
   #  attribute value determined previously and stores them in highest_count_words_across_lines.
   def calculate_line_with_highest_frequency
     @highest_count_across_lines = @analyzers.sort_by { |analyzer| analyzer.highest_wf_count }.reverse.first.highest_wf_count
- 
-    @analyzers.each do |analyzer|
-      key_words = analyzer.highest_wf_words.map { |word, value| value = @highest_count_across_lines }
-      @highest_count_words_across_lines << key_words
-      end 
-    end
 
+    @highest_count_words_across_lines = analyzers.select { |analyzer| @highest_count_across_lines == analyzer.highest_wf_count  }
+   
   end
 
 
   #Implement the print_highest_word_frequency_across_lines() method to
   #* print the values of objects in highest_count_words_across_lines in the specified format
   def print_highest_word_frequency_across_lines
+    puts "The following words have the highest word frequency per line:"
+    puts "#{}"
+
   end
 
 end
+
+
