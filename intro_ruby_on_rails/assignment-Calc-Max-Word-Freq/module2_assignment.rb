@@ -35,7 +35,6 @@ class LineAnalyzer
     split_words.each do |word|
       @highest_wf_words[word.downcase] += 1
     end 
-
     @highest_wf_count = @highest_wf_words.map { |word, value| value }.max
   end
 end
@@ -85,8 +84,13 @@ class Solution
   #  attribute value determined previously and stores them in highest_count_words_across_lines.
   def calculate_line_with_highest_frequency
     @highest_count_across_lines = @analyzers.sort_by { |analyzer| analyzer.highest_wf_count }.reverse.first.highest_wf_count
-    if @highest_wf_count == @highest_count_across_lines
+ 
+    @analyzers.each do |analyzer|
+      key_words = analyzer.highest_wf_words.map { |word, value| value = @highest_count_across_lines }
+      @highest_count_words_across_lines << key_words
+      end 
     end
+
   end
 
 
