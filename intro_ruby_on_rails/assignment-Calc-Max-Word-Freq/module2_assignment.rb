@@ -30,18 +30,19 @@ class LineAnalyzer
   #  store that in the highest_wf_words attribute.
 
   def calculate_word_frequency
-    @highest_wf_words = Hash.new(0)
+    @all_words = Hash.new(0)
     split_words = @content.split(" ")
     split_words.each do |word|
-      @highest_wf_words[word.downcase] += 1
+      @all_words[word.downcase] += 1
     end 
-    @highest_wf_count = @highest_wf_words.map { |word, value| value }.max
+    @highest_wf_count = @all_words.values.max
+    @highest_wf_words = @all_words.select { |word, value| value == highest_wf_count }.keys
   end
 end
 
 #  Implement a class called Solution. 
 class Solution
-
+  include Enumerable
   # Implement the following read-only attributes in the Solution class.
   #* analyzers - an array of LineAnalyzer objects for each line in the file
   #* highest_count_across_lines - a number with the maximum value for highest_wf_words attribute in the analyzers array.
@@ -86,12 +87,9 @@ class Solution
     @highest_count_across_lines = analyzers.sort_by { |analyzer| analyzer.highest_wf_count }.reverse.first.highest_wf_count
 
     @highest_count_words_across_lines = []
-
-    analyzers.select do |analyzer| 
-      if @highest_count_across_lines == analyzer.highest_wf_count
-        @highest_count_words_across_lines << analyzer
-      end
-    end
+    @highest_count_words_across_lines = @analyzers.select do |analyzer|
+      analyzer.highest_wf_count == @highest_count_across_lines
+   end
    
   end
 
