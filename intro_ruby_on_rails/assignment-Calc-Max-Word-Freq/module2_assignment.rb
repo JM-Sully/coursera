@@ -97,8 +97,9 @@ class Solution
   #* print the values of objects in highest_count_words_across_lines in the specified format
   def print_highest_word_frequency_across_lines
     puts "The following words have the highest word frequency per line:"
-    puts "#{}"
-
+    @highest_count_words_across_lines.each do |item|
+      puts "#{item.highest_wf_words} (appears in #{item.line_number})"
+    end
   end
 
 end
