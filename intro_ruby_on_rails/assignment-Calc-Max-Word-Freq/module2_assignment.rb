@@ -31,8 +31,7 @@ class LineAnalyzer
 
   def calculate_word_frequency
     @all_words = Hash.new(0)
-    split_words = @content.split(" ")
-    split_words.each do |word|
+    @content.split.each do |word|
       @all_words[word.downcase] += 1
     end 
     @highest_wf_count = @all_words.values.max
