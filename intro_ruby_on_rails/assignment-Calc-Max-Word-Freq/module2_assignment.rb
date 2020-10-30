@@ -83,7 +83,7 @@ class Solution
   #* identifies the LineAnalyzer objects in the analyzers array that have highest_wf_count equal to highest_count_across_lines 
   #  attribute value determined previously and stores them in highest_count_words_across_lines.
   def calculate_line_with_highest_frequency
-    @highest_count_across_lines = analyzers.sort_by { |analyzer| analyzer.highest_wf_count }.reverse.first.highest_wf_count
+    @highest_count_across_lines = analyzers.sort_by { |analyzer| analyzer.highest_wf_count }.last.highest_wf_count
 
     @highest_count_words_across_lines = []
     @highest_count_words_across_lines = @analyzers.select do |analyzer|
