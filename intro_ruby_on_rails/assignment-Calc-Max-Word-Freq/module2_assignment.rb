@@ -76,7 +76,6 @@ class Solution
     end 
   end
 
-
   # Implement the calculate_line_with_highest_frequency() method to:
   #* calculate the maximum value for highest_wf_count contained by the LineAnalyzer objects in analyzers array
   #  and stores this result in the highest_count_across_lines attribute.
@@ -89,9 +88,7 @@ class Solution
     @highest_count_words_across_lines = @analyzers.select do |analyzer|
       analyzer.highest_wf_count == @highest_count_across_lines
    end
-   
   end
-
 
   #Implement the print_highest_word_frequency_across_lines() method to
   #* print the values of objects in highest_count_words_across_lines in the specified format
